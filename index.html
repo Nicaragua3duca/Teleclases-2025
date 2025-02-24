@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!-- Define el tipo de documento como HTML5 -->
+<html lang="es">
+<!-- Indica que el idioma principal del contenido es español -->
+<head>
+    <!-- Encabezado del documento, contiene metadatos y enlaces a recursos externos -->
+    <meta charset="UTF-8">
+    <!-- Especifica la codificación de caracteres como UTF-8 (soporta caracteres especiales) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea responsive, ajustándose al ancho del dispositivo -->
+    <title>Videos Educativos</title>
+    <!-- Título de la página que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Enlaza el archivo CSS para los estilos de la página -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <!-- Importa una fuente de Google Fonts llamada "Fredoka One" -->
+</head>
+<body>
+
+    <header>
+        <img src="img/banner-teleclases-2025.png" alt="Banner Teleclases 2025">
+    </header>
+    
+    <!-- Cuerpo del documento, aquí va el contenido visible de la página -->
+    <div class="container">
+        <!-- Contenedor principal para centrar y organizar el contenido -->
+        <!--<h1>📺 Teleclases 2025</h1>
+        <!-- Título principal de la página -->
+
+<!-- Dentro del <div class="container">, justo después del <h1> -->
+    <input type="text" id="search-input" placeholder="Buscar teleclase">
+    
+        <!-- Botones de categorías -->
+        <div class="category-menu">
+            <!-- Contenedor para los botones de categorías -->
+            <button data-category="inicial">Educación Inicial</button>
+            <!-- Botón para filtrar por la categoría "Educación Inicial" -->
+            <button data-category="especial">Educación Especial</button>
+            <button data-category="primaria">Primaria</button>
+            <!-- Botón para filtrar por la categoría "Primaria" -->
+            <button data-category="secundaria">Secundaria</button>
+            <!-- Botón para filtrar por la categoría "Secundaria" -->
+            <button data-category="jovenes-adultos">Jóvenes y Adultos</button>
+            <!-- Botón para filtrar por la categoría "Jóvenes y Adultos" -->
+            <button data-category="secundaria-distancia">Secundaria a distancia</button>
+            <!-- Botón para filtrar por la categoría "Secundaria a distancia" -->
+        </div>
+
+        <!-- Botones de fechas -->
+        <div class="date-menu">
+            <!-- Contenedor para los botones de fechas -->
+            <button data-date="febrero">Febrero</button>
+
+       
+            <!-- Botón para filtrar por la fecha "Febrero" -->
+            <button data-date="marzo">Marzo</button>
+            <!-- Botón para filtrar por la fecha "Marzo" -->
+            <button data-date="abril">Abril</button>
+            <!-- Botón para filtrar por la fecha "Abril" -->
+            <button data-date="mayo">Mayo</button>
+            <!-- Botón para filtrar por la fecha "Mayo" -->
+            <button data-date="junio">Junio</button>
+            <!-- Botón para filtrar por la fecha "Junio" -->
+            <button data-date="agosto">Agosto</button>
+            <!-- Botón para filtrar por la fecha "Agosto" -->
+            <button data-date="septiembre">Septiembre</button>
+            <!-- Botón para filtrar por la fecha "Septiembre" -->
+            <button data-date="octubre">Octubre</button>
+            <!-- Botón para filtrar por la fecha "Octubre" -->
+            <button data-date="noviembre">Noviembre</button>
+            <!-- Botón para filtrar por la fecha "Noviembre" -->
+        </div>
+
+        <!-- Botón de reset -->
+        <button id="reset-filters">Mostrar todos</button>
+        <!-- Botón para restablecer los filtros y mostrar todos los videos -->
+
+        <!-- Sección de videos -->
+        <div class="video-grid">
+            <!-- Contenedor para la cuadrícula de videos -->
+             
+            <!-- Videos de Educación Inicial -->
+            
+            <div class="video-card" data-category="inicial" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "inicial" y fecha "noviembre" -->
+                <div class="video-container">
+                    <!-- Contenedor para el video embebido -->
+                    <iframe src="https://www.youtube.com/embed/CPK7AIE9DCY" allowfullscreen></iframe>
+                    <!-- Iframe para mostrar el video de YouTube -->
+                </div>
+                <p>Educación Inicial - Grafoplástica (23 Noviembre)</p>
+                <!-- Descripción del video -->
+            </div>
+            <!-- Más videos de Educación Inicial aquí -->
+             
+            <!-- Videos de Educación Especial -->
+            
+            <div class="video-card" data-category="especial" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "inicial" y fecha "noviembre" -->
+                <div class="video-container">
+                    <!-- Contenedor para el video embebido -->
+                    <iframe src="https://www.youtube.com/embed/DMKAlA32qF0" allowfullscreen></iframe>
+                    <!-- Iframe para mostrar el video de YouTube -->
+                </div>
+                <p>Educación Especial - Medidas de seguridad ante situaciones de peligro (23 Noviembre)</p>
+                <!-- Descripción del video -->
+            </div>
+            
+             
+
+            <!-- Videos de Primaria -->
+            <div class="video-card" data-category="primaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/HGCRVyXdgdU" allowfullscreen></iframe>
+                </div>
+                <p>Matemática Primer grado - Combinaciones básicas de la resta (23 Noviembre)</p>
+            </div>
+            <!-- Más videos de Primaria aquí -->
+            <div class="video-card" data-category="primaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/ngEt-1-yErY" allowfullscreen></iframe>
+                </div>
+                <p>Matemática Segundo grado - Tablas de multiplicación en dos dimenciones (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/sRNjqqRTURk" allowfullscreen></iframe>
+                </div>
+                <p>Matemática Quinto grado - Promedio (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/BlfTa5LRRnA" allowfullscreen></iframe>
+                </div>
+                <p>Lengua y Literatura Segundo grado - La formación de oraciones (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/O7003ke6zM4" allowfullscreen></iframe>
+                </div>
+                <p>Lengua y Literatura Tercer grado - Textos expositivos (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/8OoCbXrptsQ" allowfullscreen></iframe>
+                </div>
+                <p>Lengua y Literatura Quinto grado - Aplicando técnicas de lectura (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dU3lKgO8cZU" allowfullscreen></iframe>
+                </div>
+                <p>Ciencias Naturales Tercer grado - Los alimentos (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/gIFojkL3SAE" allowfullscreen></iframe>
+                </div>
+                <p>Ciencias Naturales Quinto grado - Sistema respiratorio (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/pymBSDT2J2w" allowfullscreen></iframe>
+                </div>
+                <p>Inglés Cuarto grado - Listening, reading and writing skills (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/iwjR_NIm8LE" allowfullscreen></iframe>
+                </div>
+                <p>Inglés Sexto grado - Listening, reading and writing skills (23 Noviembre)</p>
+            </div>
+
+
+            <!-- Videos de Secundaria -->
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/9If57n_BNPk" allowfullscreen></iframe>
+                </div>
+                <p>Lengua y Literatura Séptimo Grado - Autores latinoamericanos (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/TYuf0EgKG7g" allowfullscreen></iframe>
+                </div>
+                <p>Lengua y Literatura Octavo Grado - Interpretación literal e inferencial (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/jbFthODAqF4" allowfullscreen></iframe>
+                </div>
+                <p>Lengua y Literatura Noveno Grado - Textos líricos (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/AVWTKl_1GGk" allowfullscreen></iframe>
+                </div>
+                <p>Lengua y Literatura Décimo Grado - La mesa redonda (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/JK1kJXzm8dk" allowfullscreen></iframe>
+                </div>
+                <p>Lengua y Literatura Undécimo Grado - El simposio (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/hq2LDkEDSKA" allowfullscreen></iframe>
+                </div>
+                <p>Matemática Séptimo Grado - Cuadrilateros y sus características (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/CLXBLHon1i4" allowfullscreen></iframe>
+                </div>
+                <p>Matemática Octavo Grado - Calculando el área de un cilindro (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/8V1kFsXTcqk" allowfullscreen></iframe>
+                </div>
+                <p>Matemática Noveno Grado - Ángulo semiinscrito (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/JmulyPX83CM" allowfullscreen></iframe>
+                </div>
+                <p>Matemática Décimo Grado - Organización de datos mediante agrupación (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/jl6wgq8o93A" allowfullscreen></iframe>
+                </div>
+                <p>Matemática Undécimo Grado - Factorial de un número natural (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/3roDZmVm974" allowfullscreen></iframe>
+                </div>
+                <p>Inglés básico Séptimo Grado - Let´s learn new vocabulary (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/3roDZmVm974" allowfullscreen></iframe>
+                </div>
+                <p>Inglés intermedio Séptimo Grado - Let´s learn new vocabulary (23 Noviembre)</p>
+            </div>
+
+            <!-- Más videos de Secundaria aquí -->
+
+             <!-- Videos de Jóvenes -->
+             <div class="video-card" data-category="jovenes-adultos" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "jovenes" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/CY_A0CR1B3Y" allowfullscreen></iframe>
+                </div>
+                <p>Educación Jóvenes Y Adultos - Tipos de oración según la actitud del hablante (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="jovenes-adultos" data-date="noviembre">
+                <!-- Tarjeta de video con categoría "jovenes" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Le-14iIciJE" allowfullscreen></iframe>
+                </div>
+                <p>Educación Jóvenes Y Adultos - La física y la naturaleza (23 Noviembre)</p>
+            </div>
+
+            <!-- Videos de distancia -->
+            <div class="video-card" data-category="secundaria-distancia"data-date=noviembre">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/FW7A4BvOUQo" allowfullscreen></iframe>
+                </div>
+                <p>Educación A Distancia Matemática Séptimo Grado - Operaciones con expresiones algebraicas (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria-distancia"data-date=noviembre">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/ZDebSS7MoWk" allowfullscreen></iframe>
+                </div>
+                <p>Educación A Distancia Matemática Octavo Grado - Aplicación de la función de primer grado (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria-distancia"data-date=noviembre">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/HMLZOY39DTI" allowfullscreen></iframe>
+                </div>
+                <p>Educación A Distancia Matemática Noveno Grado - Aplicación de las ecuaciones de segundo grado (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria-distancia"data-date=noviembre">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/HMLZOY39DTI" allowfullscreen></iframe>
+                </div>
+                <p>Educación A Distancia Lengua y Literatura Décimo Grado - Mensajes en recursos multimedias (23 Noviembre)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria-distancia"data-date=noviembre">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/lQaXOUHXuZM" allowfullscreen></iframe>
+                </div>
+                <p>Educación A Distancia Lengua y Literatura Undécimo Grado - Estrategias de comprensión lectora (23 Noviembre)</p>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+    <!-- Enlaza el archivo JavaScript para la funcionalidad de la página -->
+</body>
+</html>

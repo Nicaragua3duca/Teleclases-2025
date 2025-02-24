@@ -1,0 +1,196 @@
+/* Estilos generales */
+body {
+    font-family: 'Fredoka One', cursive; /* Usa la fuente "Fredoka One" */
+    background: linear-gradient(135deg, #00A8E8, #E32085); /* Fondo con gradiente */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Espaciado interno */
+    margin: 0; /* Elimina el margen predeterminado */
+    color: #0059A6; /* Color del texto */
+    font-size: 1.2rem; /* Tamaño de la fuente */
+}
+
+.container {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espaciado interno */
+}
+
+h1 {
+    color: #FFFFFF; /* Color del texto */
+    font-size: 3rem; /* Tamaño de la fuente */
+    margin-bottom: 20px; /* Margen inferior */
+    -webkit-text-stroke: 0.5px #A5C83F; /* Borde del texto (para navegadores WebKit) */
+    text-stroke: 2px #A5C83F; /* Borde del texto */
+}
+
+/* Botones de categorías */
+.category-menu button {
+    color: white; /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+    font-size: 1.2rem; /* Tamaño de la fuente más grande */
+    padding: 10px 20px; /* Espaciado interno más grande */
+    border: 2px solid #A5C83F; /* Borde verde */
+    border-radius: 25px; /* Bordes más redondeados */
+    background-color: #A5C83F; /* Fondo verde */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transición suave */
+    margin: 5px; /* Margen entre botones */
+    margin-bottom: 20px;
+}
+
+.category-menu button:hover {
+    background-color: #218838; /* Cambia el fondo al pasar el mouse (verde más oscuro) */
+    transform: scale(1.05); /* Escala ligeramente el botón al pasar el mouse */
+}
+
+.category-menu button.active {
+    background-color: #218838; /* Fondo del botón activo (verde más oscuro) */
+    border-color: #1e7e34; /* Borde del botón activo */
+}
+
+/* Botones de fechas (estilo original) */
+.date-menu button {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: 1px solid #A5C83F;
+    border-radius: 15px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 20px;
+}
+
+.date-menu button:hover {
+    background-color: #A5C83F;
+    color: #0059A6;
+}
+
+.date-menu button.active {
+    background-color: #A5C83F;
+    color: #0059A6;
+    border: 2px solid #0059A6;
+}
+
+/* Botón de reset (estilo original) */
+#reset-filters {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: 1px solid #A5C83F;
+    border-radius: 15px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#reset-filters:hover {
+    background-color: #A5C83F;
+    color: #0059A6;
+}
+
+/* Videos */
+.video-grid {
+    display: grid; /* Usa CSS Grid para la cuadrícula de videos */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
+    gap: 20px; /* Espacio entre videos */
+    margin-top: 20px; /* Margen superior */
+}
+
+.video-card {
+    background-color: #A5C83F; /* Fondo de la tarjeta de video */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(131, 49, 137, 0.6); /* Sombra */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transición suave */
+}
+
+.video-card:hover {
+    transform: scale(1.05); /* Escala la tarjeta al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(131, 49, 137, 0.8); /* Aumenta la sombra al pasar el mouse */
+}
+
+.video-card p {
+    font-size: 1.2rem; /* Tamaño de la fuente */
+    color: #009C52; /* Color del texto */
+    margin: 10px 0 0; /* Margen superior */
+    text-align: center; /* Centra el texto */
+}
+
+/* Contenedor responsivo para los videos */
+.video-container {
+    position: relative; /* Posición relativa para el contenedor */
+    width: 100%; /* Ancho completo */
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 (para videos) */
+    height: 0; /* Altura inicial */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.video-container iframe {
+    position: absolute; /* Posición absoluta para el iframe */
+    top: 0; /* Alinea el iframe en la parte superior */
+    left: 0; /* Alinea el iframe en la parte izquierda */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    border: none; /* Elimina el borde del iframe */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Reduce el tamaño de la fuente en dispositivos pequeños */
+    }
+
+    .category-menu button, .date-menu button, #reset-filters {
+        font-size: 0.9rem; /* Reduce el tamaño de la fuente en dispositivos pequeños */
+        padding: 5px 8px; /* Reduce el espaciado interno en dispositivos pequeños */
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr; /* Una sola columna en dispositivos pequeños */
+    }
+
+    .video-card {
+        padding: 10px; /* Reduce el espaciado interno en dispositivos pequeños */
+    }
+
+    .video-card p {
+        font-size: 1rem; /* Reduce el tamaño de la fuente en dispositivos pequeños */
+    }
+
+}
+    /* Agrega esto al final del archivo CSS */
+    #search-input {
+        width: 80%; /* Ancho del campo de búsqueda */
+        max-width: 500px; /* Ancho máximo */
+        padding: 10px; /* Espaciado interno */
+        font-size: 1rem; /* Tamaño de la fuente */
+        border: 2px solid #A5C83F; /* Borde */
+        border-radius: 15px; /* Bordes redondeados */
+        margin-bottom: 20px; /* Margen inferior */
+        outline: none; /* Elimina el contorno al hacer clic */
+        transition: border-color 0.3s; /* Transición suave */
+    }
+    
+    #search-input:focus {
+        border-color: #0059A6; /* Cambia el color del borde al enfocar */
+    }
+
+    header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff; /* Fondo opcional */
+    }
+    
+    header img {
+        width: 100%; /* Ocupará el 100% del ancho */
+        max-width: 100%; /* Evita que se reduzca más de lo necesario */
+        height: auto; /* Mantiene la proporción */
+        display: block; /* Evita espacios adicionales debajo de la imagen */
+    }
+    
