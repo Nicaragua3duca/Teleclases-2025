@@ -17,6 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+   // Esto hace que tengamos el lightbox con popup  
+   $(document).ready(function() {
+    $('.video-link').magnificPopup({
+        type: 'iframe'
+    });
+});
+
+
+
     // Filtrado por fecha
     dateButtons.forEach(button => {
         button.addEventListener("click", function () {
