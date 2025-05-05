@@ -19,8 +19,7 @@
     <!-- Hace que la página sea responsive, ajustándose al ancho del dispositivo -->
     <title>Videos Educativos</title>
     <!-- Título de la página que aparece en la pestaña del navegador -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Enlaza el archivo CSS para los estilos de la página -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <!-- Importa una fuente de Google Fonts llamada "Fredoka One" -->
 
@@ -28,17 +27,366 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
+<style>
+    /* Estilos generales */
+body {
+    font-family: 'Fredoka One', cursive; /* Usa la fuente "Fredoka One" */
+    background: linear-gradient(135deg, #00A8E8, #E32085); /* Fondo con gradiente */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Espaciado interno */
+    margin: 0; /* Elimina el margen predeterminado */
+    color: #0059A6; /* Color del texto */
+    font-size: 1.2rem; /* Tamaño de la fuente */
+}
+
+.container {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espaciado interno */
+}
+
+h1 {
+    color: #FFFFFF; /* Color del texto */
+    font-size: 3rem; /* Tamaño de la fuente */
+    margin-bottom: 20px; /* Margen inferior */
+    -webkit-text-stroke: 0.5px #A5C83F; /* Borde del texto (para navegadores WebKit) */
+    -webkit-text-stroke: 2px #A5C83F; /* Borde del texto */
+}
+
+/* Botones de categorías - Versión minimalista */
+.category-menu button {
+    text-transform: capitalize;
+    color: white; /* Texto blanco puro */
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none; /* Eliminamos completamente el borde */
+    border-radius: 25px;
+    background-color: #A5C83F; /* Mantenemos el fondo verde */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición suave para todos los efectos */
+    margin: 5px;
+    margin-bottom: 20px;
+    font-weight: normal; /* Aseguramos que no esté en negrita */
+    text-shadow: none; /* Eliminamos sombras de texto si las hubiera */
+    -webkit-text-stroke: 0; /* Eliminamos bordes de texto en navegadores WebKit */
+    letter-spacing: normal; /* Espaciado entre letras normal */
+
+} 
+
+.category-menu button:hover {
+    background-color: #218838; /* Cambia el fondo al pasar el mouse (verde más oscuro) */
+     transform: translateY(-2px);
+    
+}
+
+.category-menu button.active {
+    background-color: #218838; /* Fondo del botón activo (verde más oscuro) */
+    border-color: #1e7e34; /* Borde del botón activo */
+     transform: translateY(1.5px);
+}
+
+/* Botones de fechas - Versión mejorada */
+.date-menu button {
+    text-transform: capitalize;
+    color: white;
+    font-size: 1rem;
+    padding: 8px 16px; /* Más espacio interno */
+    border: 2px solid #A5C83F; /* Borde más grueso */
+    border-radius: 20px; /* Bordes más redondeados */
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición suave */
+    margin: 0 8px 15px 0; /* Espaciado mejorado */
+    font-weight: 500; /* Grosor de texto medio */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Efecto hover con gradiente y movimiento */
+.date-menu button:hover {
+    
+    color: white;
+    background: linear-gradient(45deg, #A5C83F, #8fb133);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(165, 200, 63, 0.3);
+    border-color: transparent;
+}
+
+/* Efecto "pulse" para el estado active */
+.date-menu button.active {
+    background: linear-gradient(45deg, #A5C83F, #8fb133);
+    color: white;
+    border-color: transparent;
+    box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.8),
+        0 0 15px rgba(165, 200, 63, 0.6);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(165, 200, 63, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(165, 200, 63, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(165, 200, 63, 0); }
+}
+
+/* Efecto de "onda" al hacer clic */
+.date-menu button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    z-index: -1;
+}
+
+.date-menu button:focus:not(:active)::after {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% { transform: scale(0, 0); opacity: 0.5; }
+    100% { transform: scale(20, 20); opacity: 0; }
+}
+
+/*mostrar videos en lightbox*/
+.video-thumbnail {
+    width: 100%;
+    max-width: 400px; /* Ajusta este valor según lo necesites */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Botón de reset - Versión mejorada con estilo verde */
+#reset-filters {
+    text-transform: capitalize;
+    color: white;
+    font-size: 1rem;
+    padding: 8px 16px;
+    border: 2px solid #A5C83F;
+    border-radius: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin-left: 10px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    /* Estilo adicional para destacar la función */
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+/* Efecto hover con gradiente verde */
+#reset-filters:hover {
+    color: white;
+    background: linear-gradient(45deg, #A5C83F, #8fb133);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(165, 200, 63, 0.3);
+    border-color: transparent;
+    font-style: normal; /* Quita la italica en hover */
+}
+
+/* Efecto al hacer clic */
+#reset-filters:active {
+    background: linear-gradient(45deg, #A5C83F, #8fb133);
+    transform: translateY(0);
+    box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(165, 200, 63, 0.6);
+}
+
+/* Efecto ripple (onda al hacer clic) */
+#reset-filters::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    z-index: -1;
+}
+
+#reset-filters:focus:not(:active)::after {
+    animation: ripple 0.6s ease-out;
+}
+
+/* Animaciones reutilizadas */
+@keyframes ripple {
+    0% { transform: scale(0, 0); opacity: 0.5; }
+    100% { transform: scale(20, 20); opacity: 0; }
+}
+
+/* Videos */
+.video-grid {
+    display: grid; /* Usa CSS Grid para la cuadrícula de videos */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
+    gap: 20px; /* Espacio entre videos */
+    margin-top: 20px; /* Margen superior */
+}
+
+.video-card {
+    background-color: #A5C83F; /* Fondo de la tarjeta de video */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(131, 49, 137, 0.6); /* Sombra */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transición suave */
+}
+
+.video-card:hover {
+    transform: scale(1.05); /* Escala la tarjeta al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(131, 49, 137, 0.8); /* Aumenta la sombra al pasar el mouse */
+}
+
+.video-card p {
+    font-size: 1.2rem; /* Tamaño de la fuente */
+    color: #009C52; /* Color del texto */
+    margin: 10px 0 0; /* Margen superior */
+    text-align: center; /* Centra el texto */
+}
+
+/* Contenedor responsivo para los videos */
+.video-container {
+    position: relative; /* Posición relativa para el contenedor */
+    width: 100%; /* Ancho completo */
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 (para videos) */
+    height: 0; /* Altura inicial */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.video-container iframe {
+    position: absolute; /* Posición absoluta para el iframe */
+    top: 0; /* Alinea el iframe en la parte superior */
+    left: 0; /* Alinea el iframe en la parte izquierda */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    border: none; /* Elimina el borde del iframe */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Reduce el tamaño de la fuente en dispositivos pequeños */
+    }
+
+    .category-menu button, .date-menu button, #reset-filters {
+        font-size: 0.9rem; /* Reduce el tamaño de la fuente en dispositivos pequeños */
+        padding: 5px 8px; /* Reduce el espaciado interno en dispositivos pequeños */
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr; /* Una sola columna en dispositivos pequeños */
+    }
+
+    .video-card {
+        padding: 10px; /* Reduce el espaciado interno en dispositivos pequeños */
+    }
+
+    .video-card p {
+        font-size: 1rem; /* Reduce el tamaño de la fuente en dispositivos pequeños */
+    }
+
+}
+    /* Barra de búsqueda premium */
+#search-input {
+    width: 80%;
+    max-width: 500px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border: 2px solid #A5C83F;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+/* Efecto al enfocar - Neon Style */
+#search-input:focus {
+    border-color: #A5C83F;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 0 10px rgba(165, 200, 63, 0.4),
+        inset 0 0 5px rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+}
+
+/* Placeholder estilizado */
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+/* Icono de búsqueda (opcional) */
+.search-container {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto 25px;
+}
+
+.search-container::after {
+    content: "🔍";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+#search-input:focus + .search-container::after {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+    header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff; /* Fondo opcional */
+    }
+    
+    header img {
+        width: 100%; /* Ocupará el 100% del ancho */
+        max-width: 100%; /* Evita que se reduzca más de lo necesario */
+        height: auto; /* Mantiene la proporción */
+        display: block; /* Evita espacios adicionales debajo de la imagen */
+    }
+    
+</style>
 
 </head>
 <body>
-
     <header>
         <img src="img/banner-teleclases-2025.png" alt="Banner Teleclases 2025">
     </header>
+   
     
     <!-- Cuerpo del documento, aquí va el contenido visible de la página -->
     <div class="container">
-        <!-- Contenedor principal para centrar y organizar el contenido -->
+        <!-- Contenedor principal para centrar y organizar el     contenido -->
         <!--<h1>📺 Teleclases 2025</h1>
         <!-- Título principal de la página -->
 
@@ -206,6 +554,21 @@
                 <!-- Descripción del video -->
             </div>
 
+            <!-- semana del 26 Abril -->
+
+            <div class="video-card" data-category="inicial" data-date="abril">
+                <!-- Tarjeta de video con categoría "inicial" y fecha "noviembre" -->
+                <div class="video-container">
+                    <!-- Contenedor para el video embebido -->
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=lCMofKM7IFc">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/lCMofKM7IFc/maxresdefault.jpg">
+                    </a>
+                    
+                </div>
+                <p>Educación Inicial - Nociones espaciales (26 Abril)</p>
+                <!-- Descripción del video -->
+            </div>
 
              
             <!-- Videos de Educación Especial -->
@@ -313,6 +676,21 @@
                     </a>
                 </div>
                 <p>Educación Especial - Números Ordinales (05 Abril)</p>
+                <!-- Descripción del video -->
+            </div>
+
+            <!-- Videos de Educación Especial 26 Abril-->
+            
+            <div class="video-card" data-category="especial" data-date="abril">
+                <!-- Tarjeta de video con categoría "inicial" y fecha "noviembre" -->
+                <div class="video-container">
+                    <!-- Contenedor para el video embebido -->
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=j2WqTJzQpBY">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/j2WqTJzQpBY/maxresdefault.jpg" alt="Educación Especial - Sistema Nervioso (29 Marzo)">
+                    </a>
+                </div>
+                <p>Educación Especial - Palabras sinónimas (26 Abril)</p>
                 <!-- Descripción del video -->
             </div>
             
@@ -887,6 +1265,87 @@
                     </a>
                 </div>
                 <p>Inglés Sexto grado - Bobby and Fanny (05 Abril)</p>
+            </div>
+
+            <!-- Videos de Primaria 26 Abril Matemática-->
+
+            <div class="video-card" data-category="primaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=mS3vCxjPSTY">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/mS3vCxjPSTY/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Matemática Tercer grado -  Adición de números naturales hasta 1000 (26 Abril)</p>
+            </div>
+
+            <!-- Más videos de Primaria aquí -->
+            <div class="video-card" data-category="primaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=joLv6kKFrbE">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/joLv6kKFrbE/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Matemática Sexto grado - Cuerpos geométricos (26 Abril)</p>
+            </div>
+
+          
+            <div class="video-card" data-category="primaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=oVnStpeEKnk">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/oVnStpeEKnk/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Lengua y Literatura Primer grado - Consonantes P, Y  (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=L3MUUOWsRBo">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/L3MUUOWsRBo/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Lengua y Literatura Tercer grado -  Oración según la modalidad (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=p2aRy-A_UEo">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/p2aRy-A_UEo/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Lengua y Literatura Sexto grado -  Oraciones coordinadas, subordinadas relativas (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=CneAHr2ccNY">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/CneAHr2ccNY/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Ciencias Naturales Sexto grado - La reproducción humana  (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="primaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=hYajzERwbbg">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/hYajzERwbbg/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Inglés Sexto grado -  My house (26 Abril)</p>
             </div>
 
 
@@ -1845,6 +2304,151 @@
                 <p>Inglés Octavo Grado - Lets lear´n the new vocabulary (05 Abril)</p>
             </div>
 
+            <!-- Videos de Secundaria 26 Abril-->
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=dmhAw1FuyIg">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/dmhAw1FuyIg/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Consejería - Yo se que puedo (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=4z9WC51C_RM">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/4z9WC51C_RM/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Lengua y Literatura Séptimo Grado - Gramática  (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=jkl6J5Qe8nY">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/jkl6J5Qe8nY/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Lengua y Literatura Octavo Grado -  Ortografía, uso de la coma  (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=XRTKxZ8Y7Ys">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/XRTKxZ8Y7Ys/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Lengua y Literatura Noveno Grado - Gramática   Oraciones coordinadas (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=SPPvDOWactk">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/SPPvDOWactk/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Lengua y Literatura Décimo Grado - Las construcciones sintácticas compuestas  (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=2FlCbx8Cl3U">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/2FlCbx8Cl3U/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Lengua y Literatura Undécimo Grado - La investigacipon documental  (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=tk_dBRC54Os">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/tk_dBRC54Os/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Matemática Séptimo Grado - Operaciones combinadas co signos de agrupación  (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=85UD9DQn6z0">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/85UD9DQn6z0/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Matemática Octavo Grado -  Función de primer grado (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=kNXop9cKVGs">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/kNXop9cKVGs/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Matemática Noveno Grado - Aplicaciones de las ecuaciones de segundo grado  (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=N69UjVgJypo">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/N69UjVgJypo/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Matemática Décimo Grado - División de fracciones algebraicas (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=QT_j80HP5Zw">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/QT_j80HP5Zw/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Matemática Undécimo Grado - División de radicales de igual índice (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=BhQ4mOQRHOU">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/BhQ4mOQRHOU/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Inglés Séptimo Grado - Let´s learn the new vocabulary  (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria" data-date="abril">
+                <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=DdxcPk2C9YU">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/DdxcPk2C9YU/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Inglés Octavo Grado - Lets lear´n the new vocabulary (26 Abril)</p>
+            </div>
+
 
 
 
@@ -2258,6 +2862,64 @@
                 <p>Educación A Distancia Lengua y Literatura Undécimo Grado - Comprensión lectora (05 Abril)</p>
             </div>
 
+            <!-- Videos de distancia 26 Abril-->
+            
+            <!-- Videos de distancia -->
+            <div class="video-card" data-category="secundaria-distancia"data-date="abril">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=oKmUWO44Wzo">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/oKmUWO44Wzo/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Educación A Distancia Lengua y Literatura Séptimo Grado - Técnica del subrayado (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria-distancia"data-date="abril">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=1LmfZqKKdhw">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/1LmfZqKKdhw/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Educación A Distancia Lengua y Literatura Octavo Grado - La comprensión lectora  (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria-distancia"data-date="abril">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=A2VGTjhoGXo">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/A2VGTjhoGXo/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Educación A Distancia Lengua y Literatura Noveno Grado - Lenguaje denotativo y connotativo (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria-distancia"data-date="abril">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=d-Vd7PHr_Vs">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/d-Vd7PHr_Vs/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Educación A Distancia Matemática Décimo Grado - Inecuaciones simultaneas de primer grado (26 Abril)</p>
+            </div>
+
+            <div class="video-card" data-category="secundaria-distancia"data-date="abril">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=IPJFEEdDtHA">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/IPJFEEdDtHA/maxresdefault.jpg">
+                    </a>
+                </div>
+                <p>Educación A Distancia Matemática Undécimo Grado - Notación de sumatoria (26 Abril)</p>
+            </div>
+
 
 
             <!-- Educación de Jóvenes y adultos -->
@@ -2452,13 +3114,136 @@
                 <p>Educación de Jóvenes y adultos - Ecosistema (05 Abril)</p>
             </div>
 
+            <!-- Educación de Jóvenes y adultos 26 Abril -->
+
+
+            <div class="video-card" data-category="jovenes-adultos"data-date="abril">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=YviD6riPfWs"> 
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/YviD6riPfWs/maxresdefault.jpg">
+                    </a>
+
+                    
+                </div>
+                <p>Educación de Jóvenes y adultos - Calentamiento global de la madre tierra (26  Abril)</p>
+            </div>
+            
+            
+
+            <div class="video-card" data-category="jovenes-adultos"data-date="abril">
+                <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                <div class="video-container">
+
+                    <a class="video-link" href="https://www.youtube.com/watch?v=DJ3p1MzIyAI"> 
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/DJ3p1MzIyAI/maxresdefault.jpg">
+                    </a>
+                    
+                </div>
+                <p>Educación de Jóvenes y adultos - Recursos naturales de Nicaragua y nuestro planeta (26 Abril)</p>
+            </div>
+
 
         </div>
     </div>
     
 
 
-    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const categoryButtons = document.querySelectorAll(".category-menu button");
+    const dateButtons = document.querySelectorAll(".date-menu button");
+    const resetButton = document.getElementById("reset-filters");
+    const videos = document.querySelectorAll(".video-card");
+    const searchInput = document.getElementById("search-input"); // Campo de búsqueda
+
+    let activeCategory = null;
+    let activeDate = null;
+
+    // Filtrado por categoría
+    categoryButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            activeCategory = this.getAttribute("data-category");
+            filterVideos(activeCategory, activeDate);
+            highlightButton(this, categoryButtons);
+        });
+    });
+
+   // Esto hace que tengamos el lightbox con popup  
+   $(document).ready(function() {
+    $('.video-link').magnificPopup({
+        type: 'iframe'
+    });
+});
+
+
+
+    // Filtrado por fecha
+    dateButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            activeDate = this.getAttribute("data-date");
+            filterVideos(activeCategory, activeDate);
+            highlightButton(this, dateButtons);
+        });
+    });
+
+    // Resetear filtros
+    resetButton.addEventListener("click", function () {
+        activeCategory = null;
+        activeDate = null;
+        filterVideos(null, null);
+        highlightButton(null, categoryButtons);
+        highlightButton(null, dateButtons);
+    });
+
+    // Buscador
+    searchInput.addEventListener("input", function () {
+        const searchTerm = this.value.trim().toLowerCase(); // Obtiene el término de búsqueda
+        filterBySearch(searchTerm); // Filtra los videos por búsqueda
+    });
+
+    // Función para filtrar videos por búsqueda
+    function filterBySearch(searchTerm) {
+        videos.forEach(video => {
+            const videoTitle = video.querySelector("p").textContent.toLowerCase(); // Obtiene el título del video
+            if (videoTitle.includes(searchTerm)) {
+                video.style.display = "block"; // Muestra el video si coincide
+            } else {
+                video.style.display = "none"; // Oculta el video si no coincide
+            }
+        });
+    }
+
+    // Función para filtrar videos por categoría y fecha
+    function filterVideos(category, date) {
+        videos.forEach(video => {
+            const videoCategory = video.getAttribute("data-category");
+            const videoDate = video.getAttribute("data-date");
+
+            const matchCategory = !category || videoCategory === category;
+            const matchDate = !date || videoDate === date;
+
+            if (matchCategory && matchDate) {
+                video.style.display = "block";
+            } else {
+                video.style.display = "none";
+            }
+        });
+    }
+
+    // Función para resaltar el botón activo
+    function highlightButton(activeButton, buttons) {
+        buttons.forEach(button => {
+            if (button === activeButton) {
+                button.classList.add("active");
+            } else {
+                button.classList.remove("active");
+            }
+        });
+    }
+});
+    </script>
     <!-- Enlaza el archivo JavaScript para la funcionalidad de la página -->
 </body>
 </html>
