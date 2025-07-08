@@ -374,16 +374,80 @@ h1 {
         height: auto; /* Mantiene la proporción */
         display: block; /* Evita espacios adicionales debajo de la imagen */
     }
+
+    /* Mantenemos todos los estilos anteriores de la paginación */
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+        flex-wrap: wrap;
+        align-items: center; /* Añadido para alinear verticalmente */
+        gap: 15px; /* Espacio entre grupos de botones */
+    }
+
+    /* Contenedor para los números de página */
+    .page-numbers {
+        display: flex;
+        gap: 5px; /* Espacio entre números */
+    }
+
+    /* Botones Anterior/Siguiente */
+    .pagination-nav {
+        display: flex;
+        gap: 5px; /* Espacio entre Anterior y Siguiente */
+    }
+
+   /* Estilos para la paginación (versión corregida) */
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px; /* Espacio entre grupos */
+    }
+
+    .pagination button {
+        background-color: #A5C83F;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .pagination button:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+    }
+
+    .pagination button.active {
+        background-color: #218838;
+        font-weight: bold;
+    }
+
+    .pagination button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .page-info {
+        text-align: center;
+        margin: 20px 0;
+        color: white;
+        font-size: 1.1rem;
+        width: 100%;
+    }
     
 </style>
 
 </head>
 <body>
-
-  <header>
+       <header>
             <img src="img/banner-teleclases-2025.png" alt="Banner Teleclases 2025">
         </header>
-       
     <!-- Cuerpo del documento, aquí va el contenido visible de la página -->
     <div class="container">
         <!-- Contenedor principal para centrar y organizar el     contenido -->
@@ -424,6 +488,8 @@ h1 {
             <!-- Botón para filtrar por la fecha "Mayo" -->
             <button data-date="junio">Junio</button>
             <!-- Botón para filtrar por la fecha "Junio" -->
+             <button data-date="julio">Julio</button>
+            <!-- Botón para filtrar por la fecha "Junio" -->
             <button data-date="agosto">Agosto</button>
             <!-- Botón para filtrar por la fecha "Agosto" -->
             <button data-date="septiembre">Septiembre</button>
@@ -439,8 +505,9 @@ h1 {
         <!-- Botón para restablecer los filtros y mostrar todos los videos -->
 
         <!-- Sección de videos -->
-        <div class="video-grid">
-            <!-- Contenedor para la cuadrícula de videos -->
+        <div class="video-grid" id="video-grid">
+                           
+               
 
             
              
@@ -688,6 +755,24 @@ h1 {
                     
                 </div>
 
+                <!-- ***************Educación Inicial semana del 05 Julio******************-->
+
+
+
+                <div class="video-card" data-category="inicial" data-date="julio">
+                    <!-- Tarjeta de video con categoría "inicial" y fecha "noviembre" -->
+                    <div class="video-container">
+                        <!-- Contenedor para el video embebido -->
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=_riShmGSwYI">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/_riShmGSwYI/maxresdefault.jpg">
+                        </a>
+                        
+                    </div>
+                    <p>Educación Inicial -  Las emociones (05 Julio)</p>
+                    
+                </div>
+
 
             <!-- Videos de Educación Especial -->
             
@@ -918,6 +1003,23 @@ h1 {
                         </a>
                     </div>
                     <p>Educación Especial - Origen y ubicación de los primeros pobladores de América  (28 Junio)</p>
+                    <!-- Descripción del video -->
+                </div>
+
+
+                <!-- ********Videos de Educación Especial 05 Julio**********-->
+
+                
+                <div class="video-card" data-category="especial" data-date="julio">
+                    <!-- Tarjeta de video con categoría "inicial" y fecha "junio" -->
+                    <div class="video-container">
+                        <!-- Contenedor para el video embebido -->
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=EcQCN-Ou9A0">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/EcQCN-Ou9A0/maxresdefault.jpg" alt="Educación Especial - Sistema Nervioso (29 Marzo)">
+                        </a>
+                    </div>
+                    <p>Educación Especial - Actividades económicas (05 Julio)</p>
                     <!-- Descripción del video -->
                 </div>
             
@@ -2147,6 +2249,89 @@ h1 {
                         </a>
                     </div>
                     <p>Inglés Sexto grado -   Read the podcard about Angie´s vacations (28 Junio)</p>
+                </div>
+
+
+                <!-- **************Videos de Primaria 05 Julio **************-->
+
+
+                <div class="video-card" data-category="primaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=Z0iAcZCoskE">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/Z0iAcZCoskE/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Matemática Tercer grado - Multiplicación de unidades por números de dos cifras (05 Julio)</p>
+                </div>
+
+                <!-- Más videos de Primaria aquí -->
+                <div class="video-card" data-category="primaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=eshN3axmTJI">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/eshN3axmTJI/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Matemática Sexto grado - Multiplicación de número mixto por número mixto (05 Julio)</p>
+                </div>
+
+            
+                <div class="video-card" data-category="primaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=nMXVwucBgHY">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/nMXVwucBgHY/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Lengua y Literatura Primer grado - Letra Z y S (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="primaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=74GrEunZ9y0">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/74GrEunZ9y0/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Lengua y Literatura Tercer grado -  Poemas de Rubén Darío (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="primaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=LJ8u83r58NA">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/LJ8u83r58NA/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Lengua y Literatura Sexto grado - Poema lírico (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="primaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=NS1KLkjgqAE">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/NS1KLkjgqAE/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Ciencias Naturales Sexto grado - Plantas gimnospermas y angiospermas (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="primaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "primaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=Ya9QwTcUyOY">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/Ya9QwTcUyOY/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Inglés Sexto grado - The Marmaid Hotel and the Sea Shell Hotel (05 Julio)</p>
                 </div>
 
 
@@ -4278,6 +4463,153 @@ h1 {
                 </div>
 
 
+                <!--************Secundaria 05 Julio*************-->
+            
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=ICivVkh_dqs">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/ICivVkh_dqs/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Consejería de las comunidades - Jugamos para sentirnos bien (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=2ZpwDqF-ZXc">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/2ZpwDqF-ZXc/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Lengua y Literatura Séptimo Grado -  Temática de los cuentos  (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=h504WRHjfG8">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/h504WRHjfG8/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Lengua y Literatura Octavo Grado - Oraciones subordinadas (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=3AapuRIRC3E">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/3AapuRIRC3E/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Lengua y Literatura Noveno Grado - Normativa APA en citas y referencias  (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=a1yUJZlclJk">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/a1yUJZlclJk/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Lengua y Literatura Décimo Grado - El debate (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=Aof8cSCM-j4">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/Aof8cSCM-j4/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Lengua y Literatura Undécimo Grado -  La coherencia  (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=3bQzGpnXUOU8">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/3bQzGpnXUOU/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Matemática Séptimo Grado - Solución de ecuaciones de primer grado (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=r2QTaaFsPGc">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/r2QTaaFsPGc/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Matemática Octavo Grado - Simplificación de raices cuadradas (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=lH6eY-bCc70">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/lH6eY-bCc70/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Matemática Noveno Grado - Cálculo de la razón (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=6qk9CAvV7bk">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/6qk9CAvV7bk/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Matemática Décimo Grado - El teorema de pitágoras (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=YP-FrzETGYY">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/YP-FrzETGYY/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Matemática Undécimo Grado - Distancia entre dos puntos del plano cartesiano (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=LXne959WVwM">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/LXne959WVwM/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Inglés Séptimo Grado -  School supplies (05 Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria" data-date="julio">
+                    <!-- Tarjeta de video con categoría "secundaria" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=7Pmv7kV72wA">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/7Pmv7kV72wA/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Inglés Octavo Grado - Let me show you my house (05 Julio)</p>
+                </div>
+
+
              <!-- Videos de distancia -->
             
             <!-- Videos de distancia -->
@@ -5134,6 +5466,64 @@ h1 {
                     <p>Educación A Distancia Matemática Undécimo Grado -  Ecuaciones exponenciales de igual base (28 Junio)</p>
                 </div>
 
+                <!-- **********Educación a distancia 05 de Julio**********-->
+
+                <!-- Videos de distancia -->
+                <div class="video-card" data-category="secundaria-distancia"data-date="julio">
+                    <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=5v7CeEZFqRQ">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/5v7CeEZFqRQ/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Educación A Distancia Matemática Séptimo Grado - Multiplicación de expresiones algebraicas (05 de Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria-distancia"data-date="julio">
+                    <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=R4w2-y9e2mw">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/R4w2-y9e2mw/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Educación A Distancia Matemática Octavo Grado - Sistema de ecuaciones de primer grado (05 de Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria-distancia"data-date="julio">
+                    <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=qTPjLB9UY54">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/qTPjLB9UY54/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Educación A Distancia Matemática Noveno Grado - Métodos de solución de ecuaciones de segundo grado  (05 de Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria-distancia"data-date="julio">
+                    <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=pIOQhRvvEhI">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/pIOQhRvvEhI/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Educación A Distancia Lengua y Literatura Décimo Grado - Coherencia y cohesión (05 de Julio)</p>
+                </div>
+
+                <div class="video-card" data-category="secundaria-distancia"data-date="julio">
+                    <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=Re0ZgTe2-ck">
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/Re0ZgTe2-ck/maxresdefault.jpg">
+                        </a>
+                    </div>
+                    <p>Educación A Distancia Lengua y Literatura Undécimo Grado -  Niveles de comprensión lectora (05 de Julio)</p>
+                </div>
+
            
             <!-- Educación de Jóvenes y adultos -->
 
@@ -5555,10 +5945,46 @@ h1 {
                     </div>
                     <p>Educación de Jóvenes  y adultos - Prepositions in, on , at (28 Junio)</p>
                 </div>
+
+                <!-- ******Educación de Jóvenes y adultos 05 Julio **********-->
+
+
+                <div class="video-card" data-category="jovenes-adultos"data-date="julio">
+                    <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=icIsCGtelXI"> 
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/icIsCGtelXI/maxresdefault.jpg">
+                        </a>
+
+                        
+                    </div>
+                    <p>Educación de Jóvenes y adultos - Asking and giving directions (05 Julio)</p>
+                </div>
+                
+                
+
+                <div class="video-card" data-category="jovenes-adultos"data-date="julio">
+                    <!-- Tarjeta de video con categoría "distancia" y fecha "noviembre" -->
+                    <div class="video-container">
+
+                        <a class="video-link" href="https://www.youtube.com/watch?v=ft1bk1FAHlo"> 
+                            <img class="video-thumbnail" src="https://img.youtube.com/vi/ft1bk1FAHlo/maxresdefault.jpg">
+                        </a>
+                        
+                    </div>
+                    <p>Educación de Jóvenes  y adultos - Los virus (05 Julio)</p>
+                </div>
             
             
 
-
+<!-- Controles de paginación -->
+    <div class="page-info" id="page-info">Página 1 de X</div>
+<div class="pagination">
+    <button id="prev-page" disabled>Anterior</button>
+    <div id="page-buttons" style="display: flex; gap: 5px;"></div>
+    <button id="next-page">Siguiente</button>
+</div>  
       
 
     <script>
@@ -5654,6 +6080,182 @@ h1 {
         });
     }
 });
+
+ // Configuración de paginación
+        const videosPerPage = 12; // Número de videos por página
+        let currentPage = 1;
+        let filteredVideos = [];
+        let allVideos = Array.from(document.querySelectorAll('.video-card'));
+
+        // Ocultar todos los videos inicialmente
+        allVideos.forEach(video => video.style.display = 'none');
+
+        // Función para mostrar los videos de la página actual
+        function showPage(page) {
+            const startIndex = (page - 1) * videosPerPage;
+            const endIndex = startIndex + videosPerPage;
+            const videosToShow = filteredVideos.slice(startIndex, endIndex);
+
+            // Ocultar todos los videos primero
+            allVideos.forEach(video => video.style.display = 'none');
+
+            // Mostrar solo los videos de la página actual
+            videosToShow.forEach(video => {
+                video.style.display = 'block';
+            });
+            
+            // Actualizar información de la página
+            const totalPages = Math.ceil(filteredVideos.length / videosPerPage);
+            document.getElementById('page-info').textContent = `Página ${page} de ${totalPages}`;
+
+            // Actualizar botones de paginación
+            document.getElementById('prev-page').disabled = page === 1;
+            document.getElementById('next-page').disabled = page === totalPages;
+
+            // Actualizar botones de números de página
+            updatePageButtons(page, totalPages);
+        }
+
+        // Función para actualizar los botones de números de página
+        function updatePageButtons(currentPage, totalPages) {
+            const pageButtonsContainer = document.getElementById('page-buttons');
+            pageButtonsContainer.innerHTML = '';
+
+            // Mostrar máximo 5 botones de página alrededor de la página actual
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, currentPage + 2);
+
+            // Ajustar si estamos cerca del inicio o final
+            if (currentPage <= 3) {
+                endPage = Math.min(5, totalPages);
+            }
+            if (currentPage >= totalPages - 2) {
+                startPage = Math.max(totalPages - 4, 1);
+            }
+
+            // Botón para la primera página si no está visible
+            if (startPage > 1) {
+                const firstBtn = document.createElement('button');
+                firstBtn.textContent = '1';
+                firstBtn.addEventListener('click', () => goToPage(1));
+                pageButtonsContainer.appendChild(firstBtn);
+                
+                if (startPage > 2) {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.textContent = '...';
+                    ellipsis.style.margin = '0 5px';
+                    pageButtonsContainer.appendChild(ellipsis);
+                }
+            }
+
+            // Botones para las páginas visibles
+            for (let i = startPage; i <= endPage; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.textContent = i;
+                if (i === currentPage) {
+                    pageBtn.classList.add('active');
+                }
+                pageBtn.addEventListener('click', () => goToPage(i));
+                pageButtonsContainer.appendChild(pageBtn);
+            }
+
+            // Botón para la última página si no está visible
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.textContent = '...';
+                    ellipsis.style.margin = '0 5px';
+                    pageButtonsContainer.appendChild(ellipsis);
+                }
+                
+                const lastBtn = document.createElement('button');
+                lastBtn.textContent = totalPages;
+                lastBtn.addEventListener('click', () => goToPage(totalPages));
+                pageButtonsContainer.appendChild(lastBtn);
+            }
+        }
+
+        // Función para ir a una página específica
+        function goToPage(page) {
+            currentPage = page;
+            showPage(currentPage);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Event listeners para los botones de paginación
+        document.getElementById('prev-page').addEventListener('click', () => {
+            if (currentPage > 1) {
+                goToPage(currentPage - 1);
+            }
+        });
+
+        document.getElementById('next-page').addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredVideos.length / videosPerPage);
+            if (currentPage < totalPages) {
+                goToPage(currentPage + 1);
+            }
+        });
+
+        // Función para filtrar videos
+        function filterVideos() {
+            const activeCategory = document.querySelector('.category-menu button.active')?.dataset.category;
+            const activeDate = document.querySelector('.date-menu button.active')?.dataset.date;
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+            filteredVideos = allVideos.filter(video => {
+                const matchesCategory = !activeCategory || video.dataset.category === activeCategory;
+                const matchesDate = !activeDate || video.dataset.date === activeDate;
+                const matchesSearch = !searchTerm || 
+                    video.querySelector('p').textContent.toLowerCase().includes(searchTerm);
+                
+                return matchesCategory && matchesDate && matchesSearch;
+            });
+
+            // Resetear a la primera página después de filtrar
+            currentPage = 1;
+            showPage(currentPage);
+        }
+
+        // Event listeners para los filtros
+        document.querySelectorAll('.category-menu button, .date-menu button').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.category-menu button, .date-menu button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                filterVideos();
+            });
+        });
+
+        document.getElementById('search-input').addEventListener('input', filterVideos);
+
+        document.getElementById('reset-filters').addEventListener('click', function() {
+            document.querySelectorAll('.category-menu button, .date-menu button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('search-input').value = '';
+            filterVideos();
+        });
+
+        // Inicializar
+        filteredVideos = [...allVideos];
+        showPage(1);
+
+        // Lightbox para los videos
+        $(document).ready(function() {
+            $('.video-link').magnificPopup({
+                type: 'iframe',
+                iframe: {
+                    patterns: {
+                        youtube: {
+                            index: 'youtube.com',
+                            id: 'v=',
+                            src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+                        }
+                    }
+                }
+            });
+        });
     </script>
     <!-- Enlaza el archivo JavaScript para la funcionalidad de la página -->
 </body>
